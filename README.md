@@ -146,6 +146,27 @@ After the initial assessment, it walks you through improving each area — expla
 - **Before/after comparison** — re-checks all requirements and shows improvement
 - **Optional PR** — creates a pull request with all changes
 
+### `/review-fix-loop` - Iterative Review-Fix-Commit Cycle
+
+Runs repeated cycles of code review, fix, and commit until the codebase is clean or the iteration limit is reached. Each cycle invokes `/full-review`, fixes legitimate findings, and commits the changes.
+
+```
+/review-fix-loop
+```
+
+By default, runs up to 10 iterations. Pass a number to override:
+
+```
+/review-fix-loop 5
+```
+
+The loop exits early if a review finds zero actionable findings.
+
+After completion, reports:
+- Total iterations completed
+- Number of commits created
+- Summary of what was fixed across all cycles
+
 ## Review Agents
 
 The plugin includes 11 specialized review agents. Each agent focuses on a specific area and can be invoked individually with `@agent-name` or all at once via `/full-review`.
